@@ -1,5 +1,5 @@
 // app/api/upgrade/route.ts
-import { lemonsqueezyPayInstance } from "@/lib/axios";
+// import { lemonsqueezyPayInstance } from "@/lib/axios";
 
 export const dynamic = "force-dynamic";
 
@@ -45,16 +45,16 @@ export async function POST(req: Request) {
       },
     };
 
-    const response = await lemonsqueezyPayInstance.post(
-      "/v1/checkouts",
-      checkoutData
-    );
+    // const response = await lemonsqueezyPayInstance.post(
+    //   "/v1/checkouts",
+    //   checkoutData
+    // );
 
     // Return the checkout URL from the response
-    return Response.json({
-      message: "success",
-      url: response.data.data.attributes.url,
-    });
+    // return Response.json({
+    //   message: "success",
+    //   url: response.data.data.attributes.url,
+    // });
   } catch (error: any) {
     console.error("Checkout creation failed:", {
       status: error?.response?.status,
