@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const base_url = "https://api.lemonsqueezy.com";
-const apiKey = process.env.PAYMENT_API_KEY;
+const apiKey = process.env.PAYMENT_API_KEY || "";
 
 if (!apiKey) {
   throw new Error("PAYMENT_API_KEY is not defined in environment variables");

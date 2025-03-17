@@ -122,7 +122,7 @@ const page = () => {
             </ul>
 
             <button
-              onClick={initPayment}
+              // onClick={initPayment}
               disabled={plan === "unlimited"}
               className="mt-8 mx-auto block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
             >
