@@ -4,25 +4,25 @@ import axios from "axios";
 import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 
-// interface paymentIntentType {
-//   data: {
-//     message: string;
-//     url: string;
-//   };
-// }
+interface paymentIntentType {
+  data: {
+    message: string;
+    url: string;
+  };
+}
 const page = () => {
   const { user } = useUser();
   const plan = useQuery(api.user.fetchUserPlan, {
     email: user?.primaryEmailAddress?.emailAddress as string,
   });
-  // const initPayment = async () => {
-  //   const paymentIntent: paymentIntentType = await axios.post("/api/upgrade", {
-  //     email: user?.primaryEmailAddress?.emailAddress,
-  //   });
-  //   if (paymentIntent.data.message === "success") {
-  //     window.location.href = paymentIntent.data.url;
-  //   }
-  // };
+  const initPayment = async () => {
+    const paymentIntent: paymentIntentType = await axios.post("/api/upgrade", {
+      email: user?.primaryEmailAddress?.emailAddress,
+    });
+    if (paymentIntent.data.message === "success") {
+      window.location.href = paymentIntent.data.url;
+    }
+  };
   return (
     <div className="p-10">
       <h2 className="text-3xl font-bold">Plans</h2>
@@ -122,7 +122,7 @@ const page = () => {
             </ul>
 
             <button
-              // onClick={initPayment}
+              onClick={initPayment}
               disabled={plan === "unlimited"}
               className="mt-8 mx-auto block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
             >
